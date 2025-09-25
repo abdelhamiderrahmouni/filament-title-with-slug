@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Camya\Filament;
 
-use Filament\PluginServiceProvider;
 use Spatie\LaravelPackageTools\Package;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class FilamentTitleWithSlugServiceProvider extends PluginServiceProvider
 {

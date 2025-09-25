@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Camya\Filament\Tests\Support;
 
 use Filament\Forms\Concerns\InteractsWithForms;
@@ -7,7 +9,7 @@ use Filament\Forms\Contracts\HasForms;
 use Illuminate\Database\Eloquent\Model;
 use Livewire\Component;
 
-class TestableForm extends Component implements HasForms
+final class TestableForm extends Component implements HasForms
 {
     use InteractsWithForms;
 
@@ -24,18 +26,18 @@ class TestableForm extends Component implements HasForms
         return view('filament-title-with-slug::tests.support.testable-form');
     }
 
-    protected function getFormModel(): Model|string|null
-    {
-        return $this->record;
-    }
-
     public function getFormSchema(): array
     {
-        return static::$formSchema;
+        return self::$formSchema;
     }
 
     public function getFormStatePath(): ?string
     {
         return 'data';
+    }
+
+    protected function getFormModel(): Model|string|null
+    {
+        return $this->record;
     }
 }

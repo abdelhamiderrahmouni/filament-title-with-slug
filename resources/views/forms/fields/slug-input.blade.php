@@ -1,4 +1,4 @@
-<x-forms::field-wrapper
+<x-filament::input.wrapper
     :id="$getId()"
     :label="$getLabel()"
     :label-sr-only="$isLabelHidden()"
@@ -74,7 +74,7 @@
             {{ $attributes->merge($getExtraAttributes())->class(['flex mx-1 items-center justify-between group text-sm filament-forms-text-input-component']) }}
         >
 
-            @if($getReadonly())
+            @if($isReadOnly())
 
                 <span class="flex">
                     <span class="mr-1">{{ $getLabelPrefix() }}</span>
@@ -97,7 +97,7 @@
 
                         <span>{{ $getVisitLinkLabel() }}</span>
 
-                        <x-heroicon-o-external-link
+                        <x-heroicon-o-arrow-top-right-on-square
                             stroke-width="2"
                             class="h-4 w-4"
                         />
@@ -137,7 +137,7 @@
                     >
                         <span class="mr-1">{{ $getState() }}</span>
 
-                        <x-heroicon-o-pencil-alt
+                        <x-heroicon-o-pencil
                             stroke-width="2"
                             class="
                                 h-4 w-4
@@ -205,7 +205,7 @@
                         x-show="context === 'edit' && modified"
                         x-on:click="resetModification()"
                         class="cursor-pointer ml-4"
-                        icon="heroicon-o-refresh"
+                        icon="heroicon-o-arrow-path"
                         color="gray"
                         size="sm"
                         title="{{ trans('filament-title-with-slug::package.permalink_action_reset') }}"
@@ -216,7 +216,7 @@
                     <x-filament::link
                         x-on:click="cancelModification()"
                         class="cursor-pointer"
-                        icon="heroicon-o-x"
+                        icon="heroicon-o-x-mark"
                         color="gray"
                         size="sm"
                         title="{{ trans('filament-title-with-slug::package.permalink_action_cancel') }}"
@@ -244,7 +244,7 @@
 
                                 <span>{{ $getVisitLinkLabel() }}</span>
 
-                                <x-heroicon-o-external-link
+                                <x-heroicon-o-arrow-top-right-on-square
                                     stroke-width="2"
                                     class="h-4 w-4"
                                 />
@@ -263,4 +263,4 @@
 
     </div>
 
-</x-forms::field-wrapper>
+</x-filament::input.wrapper>

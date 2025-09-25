@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Camya\Filament\Tests\Support;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class RecordFactory extends Factory
+final class RecordFactory extends Factory
 {
     protected $model = Record::class;
 

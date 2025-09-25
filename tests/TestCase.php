@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Camya\Filament\Tests;
 
 use BladeUI\Heroicons\BladeHeroiconsServiceProvider;
@@ -11,11 +13,16 @@ use Filament\Support\SupportServiceProvider;
 use Livewire\LivewireServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
-class TestCase extends Orchestra
+final class TestCase extends Orchestra
 {
     protected function setUp(): void
     {
         parent::setUp();
+    }
+
+    public function getEnvironmentSetUp($app)
+    {
+        config()->set('database.default', 'testing');
     }
 
     protected function getPackageProviders($app)
@@ -29,10 +36,5 @@ class TestCase extends Orchestra
             BladeIconsServiceProvider::class,
             BladeHeroiconsServiceProvider::class,
         ];
-    }
-
-    public function getEnvironmentSetUp($app)
-    {
-        config()->set('database.default', 'testing');
     }
 }
